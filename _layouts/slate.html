@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf-8' />
+		{% include redirect/head.html %}
+		<title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+		
+		<meta name="author" content="{% if page.author %}{{ page.author }}{% else %}{{ site.author }}{% endif %}">
+		{% capture description %}{% if page.description %}{{ page.description }}{% else %}{{ content | raw_content }}{% endif %}{% endcapture %}
+		<meta name="description" content="{{ description | strip_html | condense_spaces | truncate:150 }}">
+{% if page.keywords %}<meta name="keywords" content="{{ page.keywords }}">{% endif %}
+		
+		<!-- STYLESHEETS AND FONTS -->
+		<link rel="stylesheet" type="text/css"  href="http://static.iqandreas.com/assets/stylesheets/reset.css" />
+		<link rel="stylesheet" type="text/css"  href="http://static.iqandreas.com/assets/stylesheets/pygments-syntax-hilighting.css" />
+		
+		<!-- Styles for the Slate theme by by Jason Costello (@jsncostello) -->
+		<link rel="stylesheet" type="text/css"  href="http://static.iqandreas.com/assets/stylesheets/slate/main.css" />
+		<link rel="stylesheet" type="text/css"  href="http://static.iqandreas.com/assets/stylesheets/slate/custom.css" />
+		<link rel="stylesheet" type="text/css"  href="http://www.iqandreas.com/assets/stylesheets/slate/header.css" />
+		<link rel="stylesheet" type="text/css"  href="http://www.iqandreas.com/assets/stylesheets/slate/footer.css" />
+		<link rel="stylesheet" type="text/css"  href="http://www.iqandreas.com/assets/stylesheets/accounts.css" />
+
+		<link rel="stylesheet" type="text/css"  href="http://www.iqandreas.com/flink/stylesheets/all.css" />
+		<link rel="stylesheet" type="text/css"  href="http://static.iqandreas.com/assets/stylesheets/snippets.css" />
+		<link rel="stylesheet" type="text/css"  href="http://static.iqandreas.com/assets/stylesheets/tiny-images.css" />
+		<link rel="stylesheet" type="text/css"  href="/assets/stylesheets/lists.css" />
+
+		<!-- JAVASCRIPTS -->
+		<!-- Google Analytics -->
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-44446017-1', 'iqandreas.com');
+			ga('send', 'pageview');
+		</script>
+	</head>
+
+	<body>
+
+		<!-- HEADER -->
+		<div id="header_wrap" class="outer">
+			<header class="inner">
+				 <a id="title_link" href="http://www.iqandreas.com">
+					<h1 id="page_title"><span id="andreas-renberg">Andreas Renberg</span></h1>
+					<h2 id="page_subtitle">Known on the internet as <span id="iqandreas"><span id="iq">IQ</span><span id="andreas">Andreas</span></span></h2>
+				</a>
+
+				<section id="accounts">
+					<a class="email account" rel="me" href="mailto:contact@iqandreas.com">Email Andreas Renberg</a>
+					<a class="twitter2 account" rel="me" href="http://twitter.com/IQAndreas">@IQAndreas on Twitter</a>
+					<a class="github account" rel="me" href="http://github.com/IQAndreas">IQAndreas on GitHub</a>
+					<a class="skype account" rel="me" href="/contact/skype/">IQAndreas on Skype</a>
+					<a class="facebook account" rel="me" href="/contact/facebook/">Andreas Renberg on Facebook</a>
+					<a class="kirupa account" rel="me" href="http://www.kirupa.com/forum/member.php?134305-IQAndreas">IQAndreas on the Kirupa Forums</a>
+					<a class="stackoverflow account" rel="me" href="http://stackoverflow.com/users/617937/iqandreas">IQAndreas on StackOverflow</a>
+				</section>
+			</header>
+		</div>
+
+		<!-- MAIN CONTENT -->
+		<div id="main_content_wrap" class="outer">
+			{% include redirect/body.html %}
+			<section id="main_content" class="inner">
+				{{ content }}
+			</section>
+		</div>
+
+		<!-- FOOTER	-->
+		<div id="footer_wrap" class="outer">
+			<footer class="inner">
+				 <p class="copyright">Unless otherwise indicated, everything on this site<br/>
+<span id="copyright-text">&copy;&nbsp;2013 by Andreas&nbsp;Renberg</span><br/>
+For the full list, see the <a href="/credits">site credits</a></p>
+			</footer>
+		</div>
+
+	</body>
+</html>
+
